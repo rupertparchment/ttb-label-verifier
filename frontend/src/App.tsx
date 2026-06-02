@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from 'react'
 import type { ApplicationData, BatchVerificationResponse, VerificationResult } from './types'
-import { EMPTY_APPLICATION, STANDARD_WARNING } from './types'
+import { EMPTY_APPLICATION } from './types'
 import { ResultPanel } from './components/ResultPanel'
 import { SAMPLE_PRESETS } from './samples'
 
