@@ -38,12 +38,33 @@ Dave and half the team are over 50 with varying tech comfort. The UI uses:
 
 Dave's `STONE'S THROW` vs `Stone's Throw` scenario is handled with fuzzy brand matching (rapidfuzz token-set ratio ≥ 80%). Government warnings use strict matching per Jenny's requirement — wrong case on the header is an automatic fail.
 
-### Out of scope (documented trade-offs)
+## Assumptions & Limitations
 
-- No COLA system integration (per Marcus — standalone PoC)
-- Batch mode uses a shared application template (typical importer dump scenario); per-file JSON would be a natural next step
-- No persistent storage (prototype — no PII retention concerns)
-- Production would need FedRAMP/Azure deployment and on-prem OCR if outbound API calls are blocked
+### Assumptions
+
+- **Application data is entered manually** (or via a shared batch template), not pulled from COLA. In production this would come from the COLA system or an importer CSV/API.
+- **OCR reads the label image only.** The "expected" values always come from the application side of the comparison — the tool does not infer what the application *should* say from the label alone.
+- **The sample dropdown is for demo and testing.** It pre-fills application fields for the images in `sample_labels/`; it is not a production feature.
+- **Typical batch use case** is one importer submitting many labels with the same brand/format (Janet's scenario), which is why batch mode shares one application template across uploads.
+
+### Limitations
+
+- **No COLA integration** — standalone proof-of-concept per stakeholder guidance; authorization and FedRAMP would be a separate effort.
+- **Bold government warning not verified** — Jenny noted the warning must be bold and ALL CAPS; OCR checks header casing and word-for-word text, but cannot reliably detect font weight. A vision/layout model would be needed for that.
+- **Difficult photos (glare, angle, poor lighting)** — image preprocessing helps; optional OpenAI Vision fallback exists in code but is not enabled on the live demo (no API key). Agents would still reject unreadable labels today.
+- **Beer/wine ABV exceptions** — matching uses generic ABV/proof parsing; beverage-type-specific TTB rules (e.g. certain wines/beers exempt from ABV display) are not implemented.
+- **Batch mode lacks per-file application data** — all images in a batch are checked against the same form. Mixed-application batches would need a CSV/JSON upload (API support for `applications_json` per file is already in place).
+- **No persistent storage** — uploads are processed in memory; nothing is retained after the request (appropriate for a prototype, required for production compliance).
+- **Render free tier cold start** — the live demo may take 30–60 seconds to respond on first visit after idle; subsequent requests are fast.
+- **No CI pipeline** — unit tests exist locally (`backend/tests/`) but are not wired to GitHub Actions.
+
+### Natural next steps for production
+
+- COLA API integration for application data
+- Per-file batch import (CSV/JSON)
+- On-prem OCR or FedRAMP-approved Azure deployment (Marcus's environment)
+- Vision model for bold-text and layout validation
+- Document retention and PII policies per federal requirements
 
 ## Tech Stack
 
