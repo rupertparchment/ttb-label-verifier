@@ -3,7 +3,7 @@
 AI-powered proof-of-concept for comparing alcohol beverage label artwork against COLA application data. Built for the TTB Compliance Division take-home exercise.
 
 **Repository:** https://github.com/rupertparchment/ttb-label-verifier  
-**Live demo:** _(deploy URL — see Deployment section below)_
+**Live demo:** https://ttb-label-verifier-m28m.onrender.com
 
 ## What It Does
 
