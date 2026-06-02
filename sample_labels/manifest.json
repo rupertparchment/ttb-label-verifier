@@ -1,0 +1,63 @@
+[
+  {
+    "filename": "old_tom_distillery_pass.png",
+    "application": {
+      "brand_name": "OLD TOM DISTILLERY",
+      "class_type": "Kentucky Straight Bourbon Whiskey",
+      "alcohol_content": "45% Alc./Vol. (90 Proof)",
+      "net_contents": "750 mL",
+      "bottler_producer": "Old Tom Distillery, Louisville, KY",
+      "government_warning": "GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems."
+    },
+    "expected_result": "pass"
+  },
+  {
+    "filename": "stones_throw_fuzzy_pass.png",
+    "application": {
+      "brand_name": "Stone's Throw",
+      "class_type": "Small Batch Gin",
+      "alcohol_content": "44% Alc./Vol.",
+      "net_contents": "750 mL",
+      "bottler_producer": "Stone's Throw Spirits, Portland, OR",
+      "government_warning": "GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems."
+    },
+    "expected_result": "pass"
+  },
+  {
+    "filename": "glenmore_import_pass.png",
+    "application": {
+      "brand_name": "GLENMORE HIGHLAND",
+      "class_type": "Blended Scotch Whisky",
+      "alcohol_content": "40% Alc./Vol. (80 Proof)",
+      "net_contents": "1 L",
+      "bottler_producer": "Imported by Atlantic Spirits Co., Baltimore, MD",
+      "country_of_origin": "Product of Scotland",
+      "government_warning": "GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems."
+    },
+    "expected_result": "pass"
+  },
+  {
+    "filename": "bad_warning_fail.png",
+    "application": {
+      "brand_name": "Riverside Vodka",
+      "class_type": "Premium Vodka",
+      "alcohol_content": "40% Alc./Vol. (80 Proof)",
+      "net_contents": "1 L",
+      "bottler_producer": "Riverside Distilling Co.",
+      "government_warning": "GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems."
+    },
+    "expected_result": "fail"
+  },
+  {
+    "filename": "abv_mismatch_fail.png",
+    "application": {
+      "brand_name": "Mountain Peak Rye",
+      "class_type": "Straight Rye Whiskey",
+      "alcohol_content": "46% Alc./Vol.",
+      "net_contents": "750 mL",
+      "bottler_producer": "Mountain Peak Distillery",
+      "government_warning": "GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems."
+    },
+    "expected_result": "fail"
+  }
+]
